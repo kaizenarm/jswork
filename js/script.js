@@ -1,31 +1,50 @@
 "use strict";
 
-// let str = "some";
-// let strObj = new String(str);
+//1
+console.log(typeof(String(null)));
+console.log(typeof(String(4)));
 
-// console.log(typeof(str));
-// console.log(typeof(strObj));
+//2
+console.log(typeof(5 + ''));
+console.log(typeof(null + ''));
 
-console.dir([1,2,3]);
+const num = 5;
 
-const solder = {
-    health: 400,
-    armor:100,
-    sayHello: function(){
-        console.log('Hello');
-    }
-};
+console.log("https://vk.com/catalog/" + num);
 
-// const john = {
-//     health: 100
+const forntSize = 26 + 'px';
 
-// };
+// To Number
+//1
+console.log(typeof(Number('4')));
 
-const john = Object.create(solder);
+//2
+console.log(typeof(+'4'));
 
-// john.__proto__ = solder;
+//3
+console.log(typeof(parseInt("15px", 10)));
 
-Object.setPrototypeOf(john, solder);
+let answer = +prompt("Hello", "");
 
-//console.log(john.armor);
-john.sayHello();
+//To boolean
+
+//0, '', null, undefined, NaN; -- Это false
+
+//1
+let switcher = null;
+
+if (switcher){
+    console.log('Walking...');
+}
+
+switcher = 1;
+
+if (switcher){
+    console.log('Walking...');
+}
+
+//2
+console.log(typeof(Boolean('4')));
+
+//3
+console.log(typeof(!!"44444")); //True
