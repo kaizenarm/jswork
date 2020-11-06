@@ -1,50 +1,33 @@
 "use strict";
 
-//1
-console.log(typeof(String(null)));
-console.log(typeof(String(4)));
+// let x = 5; 
+// alert( x++ ); 
 
-//2
-console.log(typeof(5 + ''));
-console.log(typeof(null + ''));
+// console.log([] + false - null + true ); // NaN
 
-const num = 5;
+// let y = 1; 
+// let x = y = 2; 
+// alert(x);  // 2
 
-console.log("https://vk.com/catalog/" + num);
+// console.log([] + 1 + 2); //12
 
-const forntSize = 26 + 'px';
+// alert( "1"[0] ); //1
 
-// To Number
-//1
-console.log(typeof(Number('4')));
+// console.log(2 && 1 && null && 0 && undefined ); // null
 
-//2
-console.log(typeof(+'4'));
+// console.log(!!( 1 && 2 ) === (1 && 2)); //false !! это булиновое 
 
-//3
-console.log(typeof(parseInt("15px", 10)));
+// alert( null || 2 && 3 || 4 );   // 3
 
-let answer = +prompt("Hello", "");
+// И запинается на лжи
+// ИЛИ запинается на правде
 
-//To boolean
+// const a = [1, 2, 3]; 
+// const b = [1, 2, 3]; 
+// console.log(a == b); //false
 
-//0, '', null, undefined, NaN; -- Это false
+// alert( +"Infinity" ); // Infinity - number число
 
-//1
-let switcher = null;
+// console.log("Ёжик" > "яблоко" ); // false
 
-if (switcher){
-    console.log('Walking...');
-}
-
-switcher = 1;
-
-if (switcher){
-    console.log('Walking...');
-}
-
-//2
-console.log(typeof(Boolean('4')));
-
-//3
-console.log(typeof(!!"44444")); //True
+console.log( 0 || "" || 2 || undefined || true || false );
