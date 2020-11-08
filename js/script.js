@@ -1,49 +1,38 @@
 "use strict";
 
-const btns = document.querySelectorAll('button'),
-      //btn = document.querySelector('button'),
-      overlay = document.querySelector('.overlay');
+// touchstart - это событие касание пальчиком
+// tochmove - это событие на движение
+// touchend - это как только оторвалься от элемента
+// touchenter - срабатывает коглда ведем на элемент на элемент
+// touchleave - скользит с этого элемента
+// touchcancel - выйдет за браузер
 
-// btn.onclick = function(){
-//     alert('Click');
-// };
+window.addEventListener('DOMContentLoaded', () => {
+    const box = document.querySelector('.box');
 
-// btn.addEventListener('click', ()=> {
-//     alert('Click');//
-// });
+    box.addEventListener('touchstart', (e) => {
+        e.preventDefault();
 
-// btn.addEventListener('click', ()=> {
-//     alert('Second click');//
-// });
+        console.log('Start');
+        console.log(e.targetTouches);
 
-// btn.addEventListener('click', (e)=> {
-//     // console.log(e.target);
-//     e.target.remove();
-//     // console.log('Hover');//
-// });
-let i = 0;
-const deleteElement = (e) => {
-    //.target.remove();
-    console.log(e.target);
-    console.log(e.type);
-    // i++;
-    // if(i == 1){
-    //     btn.removeEventListener('click', deleteElement);
-    // }
-};
+    });
 
-// btn.addEventListener('click', deleteElement);
-// overlay.addEventListener('click', deleteElement);
+    box.addEventListener('touchmove', (e) => {
+        e.preventDefault();
 
-btns.forEach(btn => {
-    btn.addEventListener('click', deleteElement, {once: true}); // Только один раз вызывается функция
-});
+        console.log(e.targetTouches[0].pageX);
+    });
 
-const link = document.querySelector('a');
+    // box.addEventListener('touchend', (e) => {
+    //     e.preventDefault();
 
-link.addEventListener('click', (event) => {
-    event.preventDefault(); // Отменили стандартное поведение браузера
+    //     console.log('End');
+    // });
 
-    console.log(event.target);
 
 });
+
+// touches - список всех пальцев учавтсвующих в действии на экране
+// targetTouches - все пальцы которые взаймодействуют в блоке
+// changedTouches -- список пальцев учавствующих в событии, пальцы совершили действия
