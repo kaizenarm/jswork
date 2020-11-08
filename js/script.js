@@ -1,38 +1,14 @@
 "use strict";
 
-// touchstart - это событие касание пальчиком
-// tochmove - это событие на движение
-// touchend - это как только оторвалься от элемента
-// touchenter - срабатывает коглда ведем на элемент на элемент
-// touchleave - скользит с этого элемента
-// touchcancel - выйдет за браузер
+const p = document.querySelectorAll('p');
+console.log(p);
 
-window.addEventListener('DOMContentLoaded', () => {
-    const box = document.querySelector('.box');
+function loadScript(src){
+    const script = document.createElement('script');
+    script.src = src;
+    script.async = false;
+    document.body.append(script);
+}
 
-    box.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-
-        console.log('Start');
-        console.log(e.targetTouches);
-
-    });
-
-    box.addEventListener('touchmove', (e) => {
-        e.preventDefault();
-
-        console.log(e.targetTouches[0].pageX);
-    });
-
-    // box.addEventListener('touchend', (e) => {
-    //     e.preventDefault();
-
-    //     console.log('End');
-    // });
-
-
-});
-
-// touches - список всех пальцев учавтсвующих в действии на экране
-// targetTouches - все пальцы которые взаймодействуют в блоке
-// changedTouches -- список пальцев учавствующих в событии, пальцы совершили действия
+loadScript("js/test.js");
+loadScript("js/some.js");
