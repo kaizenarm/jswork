@@ -1,24 +1,49 @@
 "use strict";
 
-// console.log(document.body);
-// console.log(document.head);
-// console.log(document.documentElement);
-// console.log(document.body.childNodes);
-// console.log(document.body.firstChild);
-// console.log(document.body.firstElementChild);
-// console.log(document.body.lastChild);
+const btns = document.querySelectorAll('button'),
+      //btn = document.querySelector('button'),
+      overlay = document.querySelector('.overlay');
 
-// console.log(document.querySelector('#current').parentNode.parentNode);
-// console.log(document.querySelector('#current').parentElement);
+// btn.onclick = function(){
+//     alert('Click');
+// };
 
-// console.log(document.querySelector('[data-current="3"]').nextElementSibling);
-// console.log(document.querySelector('[data-current="3"]').previousElementSibling);
-// console.log(document.querySelector('[data-current="3"]').nextElementSibling);
+// btn.addEventListener('click', ()=> {
+//     alert('Click');//
+// });
 
-for (let node of document.body.childNodes){
-    if(node.nodeName == '#text'){
-        continue;
-    }
+// btn.addEventListener('click', ()=> {
+//     alert('Second click');//
+// });
 
-    console.log(node);
-}
+// btn.addEventListener('click', (e)=> {
+//     // console.log(e.target);
+//     e.target.remove();
+//     // console.log('Hover');//
+// });
+let i = 0;
+const deleteElement = (e) => {
+    //.target.remove();
+    console.log(e.target);
+    console.log(e.type);
+    // i++;
+    // if(i == 1){
+    //     btn.removeEventListener('click', deleteElement);
+    // }
+};
+
+// btn.addEventListener('click', deleteElement);
+// overlay.addEventListener('click', deleteElement);
+
+btns.forEach(btn => {
+    btn.addEventListener('click', deleteElement, {once: true}); // Только один раз вызывается функция
+});
+
+const link = document.querySelector('a');
+
+link.addEventListener('click', (event) => {
+    event.preventDefault(); // Отменили стандартное поведение браузера
+
+    console.log(event.target);
+
+});
