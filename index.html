@@ -14,6 +14,23 @@
                 height: 100px;
                 background-color: red;
             }
+            button {
+                width: 100px;
+                height: 50px;
+                background-color: yellow;
+                margin: 50px 0;
+                
+            }
+            .blue {
+                background-color:blue;
+            }
+            .red {
+                background-color: red;
+            }
+            .btn-block {
+                background-color: aquamarine;
+                height: 120px;
+            }
         </style>
         
   </head>
@@ -22,9 +39,17 @@
           defer - DOM будет загружаться не смотря на скрипт, друг за другом по очереди
           async - не ждет сразу выполняется после загрузки DOM
        -->
-     
-        <p>Hello world!</p>
-        <p>Second messege</p>
+     <div id="first" class="btn-block">
+        <button class="blue some"></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+     </div>
+        
 		<script src="js/script.js"></script> 
   </body>
 </html>
