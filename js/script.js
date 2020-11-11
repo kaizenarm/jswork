@@ -1,31 +1,29 @@
 'use strict';
 
-const now = new Date('2020-11-11');
+const box = document.querySelector('.box'),
+      btn = document.querySelector('button');
 
-// new Date.parse('2020-11-11');
+// const width = box.clientWidth;
+// const height = box.clientHeight;
 
-console.log(now.setHours(18, 40));
-console.log(now);
+// const width = box.offsetWidth;
+// const height = box.offsetHeight;
 
+const width = box.scrollWidth;
+const height = box.scrollHeight;
 
-// console.log(now.getFullYear());
-// console.log(now.getMonth());
-// console.log(now.getDate());
-// console.log(now.getHours());
-// console.log(now.getMinutes());
-// console.log(now.getDay());
+console.log(width, height);
 
-// console.log(now.getUTCHours());
+btn.addEventListener('click', () => {
+    box.style.height = box.scrollHeight + 'px';
+    // console.log(box.scrollTop);
+});
 
-// console.log(now.getTimezoneOffset());
-console.log(now.getTime());
+ console.log(box.getBoundingClientRect().top);
 
-let start = new Date();
+ const style = window.getComputedStyle(box);
 
-for (let i = 0; i < 100000; i++){
-    let some = i ** 3;
-}
+ console.log(style.display);
 
-let end = new Date();
-
-alert(`Цикл отработал за ${end - start} миллисикунд`);
+//  console.log(document.documentElement.clientWidth);
+ console.log(document.documentElement.scrollTop);
