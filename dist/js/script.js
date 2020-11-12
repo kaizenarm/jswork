@@ -95,4 +95,54 @@ window.addEventListener('DOMContentLoaded', () => {
 
     setClock('.timer', deadline);
 
+    //Modal
+
+    //То как я сделал вызов и закрытие модального окна
+    // const modal = document.querySelector('.modal'),
+    //       showModal = document.querySelector('[data-modal]'),
+    //       closeModal = document.querySelector('[data-close]');
+
+    // showModal.addEventListener('click', () => {
+    //     modal.style.display = 'block';
+    // });
+
+    // closeModal.addEventListener('click', () => {
+    //     modal.style.display = 'none';
+    // });
+
+    const modalTrigger = document.querySelectorAll('[data-modal]'),
+          modal = document.querySelector('.modal'),
+          modalCloswBtn = document.querySelector('[data-close]');
+
+    modalTrigger.forEach(btn => {
+        btn.addEventListener('click', () => {
+            modal.classList.add('show');
+            modal.classList.remove('hide');
+            // modal.classList.toggle('show');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    function closeModal() {
+        modal.classList.add('hide');
+        modal.classList.remove('show');
+        // modal.classList.toggle('show');
+        document.body.style.overflow = '';
+    }
+
+    modalCloswBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+        if(e.target == modal){
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.code == "Escape" && modal.classList.contains('show')){
+            closeModal();
+        }
+    });
+
+
 });
