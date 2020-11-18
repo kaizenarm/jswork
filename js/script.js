@@ -1,53 +1,28 @@
 "use strict";
 
-// console.log('Запрос данных');
+//Filter
 
-// const req = new Promise(function(resolve, reject){
-//     setTimeout(() => {
-//         console.log('Подготовка данных...');
-    
-//         const product = {
-//             name: 'TV',
-//             price: 2000
-//         };
-    
-//         resolve(product);    
-//     }, 2000);
+// const names = ['Ivan', 'Ann', 'Ksenia', 'Voldemart'];
+
+// const shortNames = names.filter(function(name){
+//     return name.length < 5;
 // });
 
-// req.then((product) => {
-//     return new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//             product.status = 'order';
-//             resolve(product);
-//         }, 2000);
-//     });
+// console.log(shortNames);
 
-    
-// }).then(data => {
-//     data.modify = true;
-//     return data;
-// }).then(data => {
-//     console.log(data);
-// }).catch(() => {
-//     console.error('Произошла ошибка');
-// }).finally(() => {
-//     console.log('Finally'); 
-// });
 
-const test = time => {
-    return new Promise(resolve => {
-        setTimeout(() => resolve(), time);
-    });
-};
+// Map
 
-// test(1000).then(() => console.log('1000 ms'));
-// test(2000).then(() => console.log('2000 ms'));
+// const answers = ['IvAn', 'AnnA', 'Hello'];
 
-// Promise.all([test(1000), test(2000)]).then(() => {
-//     console.log('All');
-// });
+// const result = answers.map(item => item.toLowerCase());
 
-Promise.race([test(1000), test(2000)]).then(() => {
-    console.log('All');
-});
+// console.log(result);
+
+// every/some
+
+const some = [4, 7, 9];
+
+// console.log(some.some(item => typeof(item) === 'number'));
+
+console.log(some.every(item => typeof(item) === 'number'));
