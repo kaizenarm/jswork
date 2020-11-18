@@ -1,16 +1,34 @@
 "use strict";
 
-const persone = {
-    name: 'alex',
-    tel: '+74444444',
-    parents: {
-        mom: 'Olga',
-        dad: 'Mike'
-    }
-};
+console.log('Запрос данных');
 
-const clone = JSON.parse(JSON.stringify(persone));
+const req = new Promise(function(resolve, reject){
+    setTimeout(() => {
+        console.log('Подготовка данных...');
+    
+        const product = {
+            name: 'TV',
+            price: 2000
+        };
+    
+        resolve(product);    
+    }, 2000);
+});
 
-clone.parents.mom = "Ann";
-console.log(persone);
-console.log(clone);
+req.then((product) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            product.status = 'order';
+            resolve(product);
+        }, 2000);
+    });
+
+    
+}).then(data => {
+    data.modify = true;
+    return data;
+}).then(data => {
+    console.log(data);
+}).catch(() => {
+    console.error('Произошла ошибка');
+});
