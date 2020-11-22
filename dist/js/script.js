@@ -42,7 +42,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     //Timer
 
-    const deadline = '2020-11-20';
+    const deadline = '2020-12-31';
 
     function getTimeRemaining(endtime) {
         const t = Date.parse(endtime) - Date.parse(new Date()),
@@ -223,10 +223,10 @@ window.addEventListener('DOMContentLoaded', () => {
         // });
     // });
 
+    // Второй способ
     // getResource('http://localhost:3000/menu')
     // .then(data => createCard(data));
 
-    // Второй способ
     // function createCard(data){
     //     data.forEach(({img, altimg, title, descr, price}) => {
     //                 const element = document.createElement('div');
@@ -265,10 +265,10 @@ window.addEventListener('DOMContentLoaded', () => {
     const postData = async (url, data) => {
         const res = await fetch(url, {
             method: "POST",
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: data
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: data
         });
 
         return await res.json();
@@ -335,5 +335,101 @@ window.addEventListener('DOMContentLoaded', () => {
     fetch('http://localhost:3000/menu')
     .then(data => data.json())
     .then(res => console.log(res));
+
+// Слайдер
+
+// То что я сделал!!!
+//  const slides = document.querySelectorAll('.offer__slide'),
+//       next = document.querySelector('.offer__slider-next'),
+//       prev = document.querySelector('.offer__slider-prev'),
+//       currenttext = document.querySelector('#current');
+
+// hideSlide();
+// showSlide();
+// let num = 0;
+// let numall = slides.length;
+
+// next.addEventListener('click', () => {
+//     num += 1;
+//     if(num == 4){
+//         num = 0;  
+//     }
+//     hideSlide();
+//     showSlide(num);
+//     console.log(num);
+// });
+
+// prev.addEventListener('click', () => {
+    
+//     num -= 1;
+//     if(num < 0){
+//         num = num + numall;
+//     }
+//     hideSlide();
+//     showSlide(num);
+//     console.log(num);
+// });
+
+// function hideSlide(){
+//     slides.forEach(item => {
+//         item.classList.add('hide');
+//     });
+// }
+
+// function showSlide(slide = 0){
+//     slides[slide].classList.remove('hide');
+//     slides[slide].classList.add('show');
+//     slides[slide].classList.add('fade');
+//     currenttext.textContent = getZero(slide + 1);
+// }
+
+// Slider
+    const slides = document.querySelectorAll('.offer__slide'),
+          next = document.querySelector('.offer__slider-next'),
+          prev = document.querySelector('.offer__slider-prev'),
+          total = document.querySelector('#total'),
+          current = document.querySelector('#current');
+
+    let slideIndex = 1;
+
+    showSlides(slideIndex);
+
+    if (slides.length < 10) {
+        total.textContent = `0${slides.length}`;
+    } else {
+        total.textContent = slides.length;
+    }
+
+    function showSlides(n){
+        if (n > slides.length){
+            slideIndex = 1;
+        }
+
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
+
+        slides.forEach(item => item.style.display = 'none');
+
+        slides[slideIndex - 1].style.display = 'block';
+
+        if (slides.length < 10) {
+            current.textContent = `0${slideIndex}`;
+        } else {
+            current.textContent = slideIndex;
+        }
+    }
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    prev.addEventListener('click', () => {
+        plusSlides(-1);
+    });
+
+    next.addEventListener('click', () => {
+        plusSlides(1);
+    });
 
 });
