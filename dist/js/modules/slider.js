@@ -1,60 +1,14 @@
-function slider(){
-    // Слайдер
-
-    // То что я сделал!!!
-    //  const slides = document.querySelectorAll('.offer__slide'),
-    //       next = document.querySelector('.offer__slider-next'),
-    //       prev = document.querySelector('.offer__slider-prev'),
-    //       currenttext = document.querySelector('#current');
-
-    // hideSlide();
-    // showSlide();
-    // let num = 0;
-    // let numall = slides.length;
-
-    // next.addEventListener('click', () => {
-    //     num += 1;
-    //     if(num == 4){
-    //         num = 0;  
-    //     }
-    //     hideSlide();
-    //     showSlide(num);
-    //     console.log(num);
-    // });
-
-    // prev.addEventListener('click', () => {
-        
-    //     num -= 1;
-    //     if(num < 0){
-    //         num = num + numall;
-    //     }
-    //     hideSlide();
-    //     showSlide(num);
-    //     console.log(num);
-    // });
-
-    // function hideSlide(){
-    //     slides.forEach(item => {
-    //         item.classList.add('hide');
-    //     });
-    // }
-
-    // function showSlide(slide = 0){
-    //     slides[slide].classList.remove('hide');
-    //     slides[slide].classList.add('show');
-    //     slides[slide].classList.add('fade');
-    //     currenttext.textContent = getZero(slide + 1);
-    // }
+function slider({container, slide, nextArrow, prevArrow, totalCounter, currentCounter, wrapper, field}){
 
     // Slider
-    const slides = document.querySelectorAll('.offer__slide'),
-    slider = document.querySelector('.offer__slider'), 
-    next = document.querySelector('.offer__slider-next'),
-    prev = document.querySelector('.offer__slider-prev'),
-    total = document.querySelector('#total'),
-    current = document.querySelector('#current'),
-    slidesWrapper = document.querySelector('.offer__slider-wrapper'),
-    slidesField = document.querySelector('.offer__slider-inner'),
+    const slides = document.querySelectorAll(slide),
+    slider = document.querySelector(container), 
+    next = document.querySelector(nextArrow),
+    prev = document.querySelector(prevArrow),
+    total = document.querySelector(totalCounter),
+    current = document.querySelector(currentCounter),
+    slidesWrapper = document.querySelector(wrapper),
+    slidesField = document.querySelector(field),
     width = window.getComputedStyle(slidesWrapper).width;
 
     let slideIndex = 1;
@@ -198,4 +152,4 @@ function slider(){
     });
 }
 
-module.exports = slider;
+export default slider;
