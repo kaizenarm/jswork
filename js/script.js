@@ -1,15 +1,18 @@
-'use strict';
+// Angular:
+//  - node.js
+//  - TypeScript
+//  - webpack
+//  - MVC pattern
+//  - Angular
+ 
+// React:
+//  - JSX (препроцессор)
+//  - Babel
+//  - Webpack
+//  - React
+//  - node.js
 
-try {
-    console.log('Normal');
-    console.log(a);
-    console.log('result');
-} catch(error) {
-    console.log(error.name);
-    console.log(error.message);
-    console.log(error.stack);
-} finally {
-    //
-}
-
-console.log('Still normal');
+// Vue.js:
+//  - Webpack
+//  - Vue
+//  - node.js
