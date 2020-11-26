@@ -1,6 +1,15 @@
-import {one, two} from './main.js';
-// import * as data from './main.js';
-import sayHi from './main.js';
+'use strict';
 
-console.log(`${one} and ${two}`);
-sayHi();
+try {
+    console.log('Normal');
+    console.log(a);
+    console.log('result');
+} catch(error) {
+    console.log(error.name);
+    console.log(error.message);
+    console.log(error.stack);
+} finally {
+    //
+}
+
+console.log('Still normal');
