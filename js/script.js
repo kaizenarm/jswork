@@ -1,29 +1,33 @@
-'use strict';
+const btn = document.querySelector('.btn');
+let timerId,
+    i = 0;
 
-// function* generator() {
-//     yield 's';
-//     yield 'c';
-//     yield 'r';
-//     yield 'i';
-//     yield 'p';
-//     yield 't';
-// }
+    let pos = 0;
 
-// const str = generator();
+// function myAnimation() {
+//     const elem = document.querySelector('.box');
+//     let pos = 0;
 
-// console.log(str.next().value);
+//     const id = setInterval(frame, 10);
+//     function frame() {
+//         if (pos == 300) {
+//             clearInterval(id);
+//         } else {
+//             pos++;
+//             elem.style.top = pos + "px";
+//             elem.style.left = pos + "px";
+//         }
+//     }
+// }  
 
-function* count(n) {
-    for (let i = 0; i < n; i++){
-        yield i;
+function myAnimation() {
+    const elem = document.querySelector('.box');
+    pos++;
+    elem.style.top = pos + "px";
+    elem.style.left = pos + "px";
+    if(pos < 300) {
+        requestAnimationFrame(myAnimation);
     }
-}
+} 
 
-const num = count(7);
-
-// console.log(num.next().value);
-
-for (let n of num){
-    console.log(n.next().value);
-}
-
+btn.addEventListener('click', () => requestAnimationFrame(myAnimation));
