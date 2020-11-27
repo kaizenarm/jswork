@@ -1,33 +1,29 @@
-const btn = document.querySelector('.btn');
-let timerId,
-    i = 0;
+'use strict';
 
-    let pos = 0;
+// console.log(1);
 
-// function myAnimation() {
-//     const elem = document.querySelector('.box');
-//     let pos = 0;
+// setTimeout(() => {
+//     console.log('timout');
+// }, 4000);
 
-//     const id = setInterval(frame, 10);
-//     function frame() {
-//         if (pos == 300) {
-//             clearInterval(id);
-//         } else {
-//             pos++;
-//             elem.style.top = pos + "px";
-//             elem.style.left = pos + "px";
-//         }
+// setTimeout(() => {
+//     console.log('timout__4000');
+// }, 4000);
+
+// console.log(2);
+
+// let k = 0;
+
+// function count() {
+//     for (let i = 0; i< 1e9; i++){
+//         k++;
 //     }
-// }  
+//     alert('done');
+// }
+// count();
 
-function myAnimation() {
-    const elem = document.querySelector('.box');
-    pos++;
-    elem.style.top = pos + "px";
-    elem.style.left = pos + "px";
-    if(pos < 300) {
-        requestAnimationFrame(myAnimation);
-    }
-} 
+setTimeout(() => {
+    console.log(1);
+}, 0);
 
-btn.addEventListener('click', () => requestAnimationFrame(myAnimation));
+console.log(2);
