@@ -23,3 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 /practice
+
+/jquery/node_modules
+/jquery/dist
